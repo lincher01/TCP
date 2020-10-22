@@ -1,14 +1,30 @@
 #!/usr/bin/python
 from socket import *
+import os
+import sys
 
-serverPort = 12000
+serverPort = int(sys.argv[1])
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.bind(('', serverPort))
+
 serverSocket.listen(1)
 print("The server is ready to recieve")
 while True:
 	connectionSocket, addr = serverSocket.accept()
 	sentence = connectionSocket.recv(1024).decode()
-	capitalizedSentence = sentence.upper()
-	connectionSocket.send(capitalizedSentence.encode())
+
+	substring = '>'
+	if substring in sentence:
+		## given a file
+		found = sentence[sentence.find('>')+1:]
+		os.system(sentence)
+
+
+	## if there is no file
+	else:
+		
+		os.system(sentence + ' > TCPresults.txt')
+		found = "TCPresults.txt"
+
+	connectionSocket.send(found.encode())
 	connectionSocket.close()
