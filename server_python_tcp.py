@@ -3,6 +3,7 @@ from socket import *
 import os
 import sys
 
+## some code from computer networking by Kurose and ross
 serverPort = int(sys.argv[1])
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.bind(('', serverPort))

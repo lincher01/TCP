@@ -2,6 +2,7 @@
 from socket import *
 import os
 
+## some code from computer networking by Kurose and ross
 clientSocket = socket(AF_INET, SOCK_STREAM)
 IP = input('Enter server name or IP addres: ')
 port = input('Enter port: ')
